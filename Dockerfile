@@ -66,9 +66,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75
     echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/4.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.2.2.list && \
     apt-get update && \
     apt-get install -y mongodb && \
-	apt install mongodb-org && \
-	systemctl enable mongodb && \
-	systemctl start mongodb
+	apt install mongodb-org
 	
 RUN mkdir -p /data/db /data/configdb && \
 	chown -R mongodb:mongodb /data/db /data/configdb	
