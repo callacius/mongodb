@@ -68,8 +68,6 @@ RUN set -ex; \
 	rm -r "$GNUPGHOME"; \
 	apt-key list
 	
-RUN mkdir /docker-entrypoint-initdb.d
-
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4 && \
     echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | tee "/etc/apt/sources.list.d/mongodb-org-4.2.2.list" && \
     apt-get update && \
@@ -86,9 +84,6 @@ RUN mkdir -p /data/db /data/configdb && \
 	chown -R mongodb:mongodb /data/db /data/configdb	
 
 VOLUME /data/db /data/configdb
-
-COPY docker-entrypoint.sh /usr/local/bin/
-ENTRYPOINT ["docker-entrypoint.sh"]
 
 ENV AUTH yes
 ENV STORAGE_ENGINE wiredTiger
