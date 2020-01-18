@@ -4,9 +4,6 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && \
     echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | tee "/etc/apt/sources.list.d/mongodb-org-4.2.2.list" && \
     apt-get update && \
     apt-get install -y --force-yes pwgen mongodb-org mongodb-org-server mongodb-org-shell mongodb-org-mongos mongodb-org-tools && \
-	rm -rf /var/lib/apt/lists/* && \
-	rm -rf /var/lib/mongodb && \
-	mv /etc/mongod.conf /etc/mongod.conf.orig && \
     echo "mongodb-org hold" | dpkg --set-selections && echo "mongodb-org-server hold" | dpkg --set-selections && \
     echo "mongodb-org-shell hold" | dpkg --set-selections && \
     echo "mongodb-org-mongos hold" | dpkg --set-selections && \
