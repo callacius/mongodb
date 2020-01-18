@@ -1,5 +1,18 @@
 FROM ubuntu:bionic
 
+RUN groupadd -r mongodb && useradd -r -g mongodb mongodb
+
+RUN set -eux; \
+	apt-get update; \
+	apt-get install -y --no-install-recommends \
+		ca-certificates \
+		jq \
+		numactl \
+	; \
+	if ! command -v ps > /dev/null; then \
+		apt-get install -y --no-install-recommends procps; \
+	fi; \
+	rm -rf /var/lib/apt/lists/*
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4 && \
     echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/4.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.2.2.list && \
