@@ -1,7 +1,7 @@
-FROM ubuntu:xenial
+FROM ubuntu:focal
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && \
-    echo "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.2.2list && \
+    echo "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.2.2list && \
     apt-get update && \
     apt-get install -y \
 	mongodb-org=4.2.2 \
