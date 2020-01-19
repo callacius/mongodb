@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && \
@@ -19,7 +19,7 @@ ENV JOURNALING yes
 ADD run.sh /run.sh
 ADD set_mongodb_password.sh /set_mongodb_password.sh
 
-ENTRYPOINT ["set_mongodb_password.sh"]
+ENTRYPOINT ["sh", "set_mongodb_password.sh"]
 
 EXPOSE 27017 28017
 
