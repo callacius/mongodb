@@ -19,6 +19,8 @@ ENV JOURNALING yes
 ADD run.sh /run.sh
 ADD set_mongodb_password.sh /set_mongodb_password.sh
 
+ENTRYPOINT ["docker-entrypoint.sh"]
+
 EXPOSE 27017 28017
 
 CMD ["/run.sh"]
