@@ -1,6 +1,6 @@
 FROM mongo:4.2.2-bionic
 
-RUN apt-get update && \
+RUN apt-get update
 
 VOLUME /data/db /data/configdb
 
