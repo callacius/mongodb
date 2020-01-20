@@ -15,8 +15,7 @@ ENTRYPOINT ["sh", "set_mongodb_password.sh"]
 
 RUN chmod 777 /usr/local/bin/docker-entrypoint.sh
 
-RUN sh docker-entrypoint.sh
-
+RUN ["/usr/local/bin/docker-entrypoint.sh"]
 
 EXPOSE 27017 28017
 
