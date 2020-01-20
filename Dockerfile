@@ -17,7 +17,7 @@ RUN chmod u+x /usr/local/bin/docker-entrypoint.sh
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 
-RUN ["docker-entrypoint.sh"]
+RUN sh docker-entrypoint.sh
 
 EXPOSE 27017 28017
 
